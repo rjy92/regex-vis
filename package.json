@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "serve": "vite preview",
     "test": "vitest",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "build:web-component": "vite build --config vite.web-component.config.ts"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.7",
