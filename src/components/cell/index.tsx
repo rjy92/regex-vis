@@ -10,6 +10,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
+const showMdnLinks = process.env.VITE_SHOW_MDN_LINKS !== 'false' 
 
 type ItemProps = {
   label: string
@@ -46,7 +47,7 @@ function Cell({
     <div>
       <div className={clsx('flex items-center mb-2.5', { 'justify-between': !!rightIcon })}>
         <h5 className="font-semibold">{label}</h5>
-        {mdnLinkKey && (
+        {showMdnLinks && mdnLinkKey && (
           <a href={mdnLinks[mdnLinkKey]} target="_blank" rel="noreferrer" className="ml-2">
             <QuestionIcon className="w-4 h-4" />
           </a>

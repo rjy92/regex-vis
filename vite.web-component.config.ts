@@ -36,6 +36,7 @@ export default defineConfig({
     sourcemap: true    
   },    
   define: {    
-    'process.env.NODE_ENV': '"production"'    
+    'process.env.NODE_ENV': '"production"',
+    'process.env.VITE_SHOW_MDN_LINKS': '"false"'   // 禁用编辑页面的 MDN 链接  
   }    
 })

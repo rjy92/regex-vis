@@ -33,6 +33,7 @@ type Prop = {
   id: string
   quantifier: AST.Quantifier | null
 }
+const showMdnLinks = process.env.VITE_SHOW_MDN_LINKS !== 'false' 
 const ContentEditor: React.FC<Prop> = ({ content, id, quantifier }) => {
   const { t } = useTranslation()
   const groupNames = useAtomValue(groupNamesAtom)
@@ -110,7 +111,7 @@ const ContentEditor: React.FC<Prop> = ({ content, id, quantifier }) => {
               </SelectGroup>
             </SelectContent>
           </Select>
-          {isMdnLinkKey(content.kind) && (
+          {showMdnLinks && isMdnLinkKey(content.kind) && (
             <a href={mdnLinks[content.kind]} target="_blank" rel="noreferrer">
               <QuestionIcon className="w-4 h-4" />
             </a>
