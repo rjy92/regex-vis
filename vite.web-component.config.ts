@@ -8,13 +8,14 @@ export default defineConfig({
     lib: {  
       entry: 'src/web-component/index.ts',  
       name: 'RegexVisFull',  
-      fileName: 'regex-vis-full',  
+      fileName: 'regex-vis-cn',  
       formats: ['es']  
     },  
     rollupOptions: {  
       external: [],  
       output: {  
-        assetFileNames: 'regex-vis-full.[ext]'  
+        // assetFileNames: 'regex-vis-full.[ext]'  
+        assetFileNames: 'regex-vis-cn.[ext]'
       }  
     },  
     cssCodeSplit: false, // 将CSS打包到一个文件中  

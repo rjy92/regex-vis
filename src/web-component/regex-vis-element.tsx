@@ -4,8 +4,9 @@ import { Provider } from 'jotai'
 import { BrowserRouter } from 'react-router-dom'  
 import Home from '../modules/home'  
 import '../global.css' // 引入全局样式  
-import '../i18n' // 引入国际化配置  
+import '../i18n-cn-only' // 引入国际化配置  
 import { RouterWrapper } from './router-wrapper'
+
   
 class RegexVisElement extends HTMLElement {  
   private root: ReactDOM.Root | null = null  
@@ -37,21 +38,39 @@ class RegexVisElement extends HTMLElement {
     }  
   }  
     
-  private render() {  
-    const initialRegex = this.getAttribute('initial-regex') || ''  
-    const width = this.getAttribute('width') || '100%'  
-    const height = this.getAttribute('height') || '600px'  
-      
-    // 这里就是"更新Web Component使用路由包装器"的具体位置  
-    this.root?.render(  
-      React.createElement(Provider, {},  
-        React.createElement(RouterWrapper, {  
-          initialRegex  
-        })  
-      )  
-    )  
-  } 
+  private render() {    
+    const initialRegex = this.getAttribute('initial-regex') || ''    
+    const width = this.getAttribute('width') || '100%'    
+    const height = this.getAttribute('height') || '500px'    
+        
+    this.root?.render(    
+      React.createElement(Provider, {},    
+        React.createElement('div', {    
+          style: {   
+            width,   
+            height,   
+            display: 'flex',  
+            flexDirection: 'column',  
+            minHeight: 0  
+          }    
+        },    
+          React.createElement('div', {  
+            style: {  
+              flex: 1,  
+              minHeight: 0,  
+              overflow: 'auto',  
+              position: 'relative'  
+            }  
+          },  
+            React.createElement(RouterWrapper, {    
+              initialRegex    
+            })  
+          )  
+        )    
+      )    
+    )     
+  }
 } 
   
-customElements.define('regex-vis-full', RegexVisElement)  
+customElements.define('regex-vis', RegexVisElement)  
 export default RegexVisElement
