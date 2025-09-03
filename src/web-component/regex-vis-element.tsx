@@ -10,15 +10,27 @@ import { RouterWrapper } from './router-wrapper'
   
 class RegexVisElement extends HTMLElement {  
   private root: ReactDOM.Root | null = null  
-  // private shadowRoot: ShadowRoot  
+  private shadowRoot: ShadowRoot  
+  private static stylesheet: CSSStyleSheet | null = null  
     
   constructor() {  
     super()  
-    // this.shadowRoot = this.attachShadow({ mode: 'open' })  
-  }  
+    this.shadowRoot = this.attachShadow({ mode: 'open' })  
     
-  connectedCallback() {  
-    this.root = ReactDOM.createRoot(this)  
+
+  }  
+  private async adoptStylesheet() {  
+    if (!RegexVisElement.stylesheet) {  
+      const response = await fetch('./regex-vis-cn.css')  
+      const css = await response.text()  
+      RegexVisElement.stylesheet = new CSSStyleSheet()  
+      await RegexVisElement.stylesheet.replace(css)  
+    }  
+    this.shadowRoot.adoptedStyleSheets = [RegexVisElement.stylesheet]  
+  }  
+  async connectedCallback() {  
+    await this.adoptStylesheet()  
+    this.root = ReactDOM.createRoot(this.shadowRoot)  
     this.render()  
   }  
     
