@@ -1,7 +1,7 @@
 {
   "name": "regex-vis",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.4.0",
   "private": true,
   "scripts": {
     "start": "vite",
@@ -9,7 +9,10 @@
     "serve": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "build:web-component": "vite build --config vite.web-component.config.ts"
+    "build:web-component": "vite build --config vite.web-component.config.ts",
+    "build:npm": "cd regex-vis-npm-package && npm run build",  
+    "prepare:npm": "npm run build:npm && cd regex-vis-npm-package && npm pack",  
+    "publish:npm": "npm run build:npm && cd regex-vis-npm-package && npm publish"  
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.7",

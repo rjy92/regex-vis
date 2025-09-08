@@ -1,0 +1,39 @@
+{
+  "name": "regex-vis-web-component",
+  "version": "0.3.6",
+  "type": "module",
+  "description": "Regex visualizer as Web Component",
+  "main": "dist/regex-vis-cn.mjs",  
+  "module": "dist/regex-vis-cn.mjs",  
+  "types": "dist/regex-vis-cn.d.mts",  
+  "files": [
+    "dist/"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/regex-vis-cn.mjs",  
+      "types": "./dist/regex-vis-cn.d.mts"
+    },
+    "./style.css": "./dist/regex-vis-cn.css"
+  },
+  "scripts": {
+    "build": "vite build",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.5.0",
+    "vite": "^5.3.3",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-tsconfig-paths": "^4.3.2"
+  }
+}

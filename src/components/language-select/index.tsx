@@ -11,10 +11,10 @@ import {
 export function LanguageSelect() {
   const { i18n } = useTranslation()
   const language = i18n.language
+  return null  
 
-  return (
+  // return (
     // 完全隐藏语言选择器，固定为中文  
-    return null  
     // <Select value={language} onValueChange={i18n.changeLanguage}>
     //   <SelectTrigger className="w-24 px-2 text-xs h-8">
     //     <SelectValue placeholder="Select a language" />
@@ -28,5 +28,5 @@ export function LanguageSelect() {
     //     </SelectGroup>
     //   </SelectContent>
     // </Select>
-  )
+  // )
 }

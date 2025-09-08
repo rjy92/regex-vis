@@ -2,10 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'  
 import { Provider } from 'jotai'  
 import { BrowserRouter } from 'react-router-dom'  
-import Home from '../modules/home'  
-import '../global.css' // 引入全局样式  
-import '../i18n-cn-only' // 引入国际化配置  
 import { RouterWrapper } from './router-wrapper'
+
+import '@/global.css'  
+import '@/i18n-cn-only'  
+import Home from '@/modules/home'
 
   
 class RegexVisElement extends HTMLElement {  
